@@ -1,0 +1,666 @@
+:root {
+  --warna: #1f79d6;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+}
+
+.navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 27px;
+  color: var(--warna);
+}
+.navbar .navbar-brand img {
+  margin-right: 15px;
+}
+.navbar .navbar-brand:hover {
+  transform: scale(1.02);
+}
+.navbar .navbar-nav .nav-item {
+  margin-right: 7px;
+  font-size: 20px;
+}
+.navbar .navbar-nav .nav-item .active {
+  color: var(--warna);
+  font-weight: 800;
+}
+.navbar .btn-pesan {
+  background-color: var(--warna);
+  color: white;
+  font-size: 20px;
+  padding: 3px 15px;
+}
+.navbar .btn-pesan:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 5px rgb(121, 121, 121);
+}
+
+nav .breadcrumb {
+  font-size: 16px;
+}
+nav .breadcrumb a {
+  text-decoration: none;
+  color: black;
+}
+nav .breadcrumb .active {
+  color: var(--warna);
+  font-weight: bold;
+}
+
+.judul-halaman {
+  margin-top: 4rem;
+}
+.judul-halaman h1,
+.judul-halaman h2 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.judul-halaman h1 {
+  color: #1f79d6;
+}
+.judul-halaman h1 span {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  color: red;
+}
+.judul-halaman p {
+  font-size: 25px;
+}
+
+.kenapa img {
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgb(121, 121, 121);
+}
+.kenapa .img-2 {
+  display: none !important;
+}
+.kenapa h3,
+.kenapa h4 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.kenapa h4 {
+  color: var(--warna);
+}
+
+.layanan {
+  margin-top: 5rem;
+}
+.layanan .judul-layanan h2,
+.layanan .judul-layanan h5 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.layanan .content-layanan {
+  margin-top: 2rem;
+}
+.layanan .content-layanan .card-content-layanan {
+  margin-bottom: 2rem;
+  text-align: center;
+  border: none;
+}
+.layanan .content-layanan .card-content-layanan img {
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgb(121, 121, 121);
+}
+.layanan .content-layanan .card-content-layanan .img-driver {
+  box-shadow: none !important;
+}
+.layanan .content-layanan .card-content-layanan h5 {
+  margin-top: 1rem;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.layanan .content-layanan .card-content-layanan p {
+  font-size: 16px;
+  text-align: justify;
+  font-weight: 400;
+}
+.layanan .content-layanan .card-content-layanan p span {
+  color: var(--warna);
+  font-weight: bold;
+}
+.layanan .content-layanan .card-content-layanan .area-driver {
+  margin-bottom: 1.5rem;
+}
+.layanan .content-layanan .card-content-layanan .tujuan-driver {
+  font-size: 18px;
+}
+.layanan .content-layanan .card-content-layanan .harga-driver {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+.layanan .content-layanan .card-content-layanan .detail-harga-driver {
+  margin-top: -10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.layanan .content-layanan .card-content-layanan .detail .btn {
+  padding: 5px 15px;
+}
+.layanan .content-layanan .card-content-layanan .detail .btn-detail {
+  background-color: var(--warna);
+  color: white;
+  font-size: 14px;
+}
+.layanan .content-layanan .card-content-layanan .detail .btn-detail:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 5px rgb(121, 121, 121);
+}
+.layanan .content-layanan .card-content-layanan .detail .btn-pesan {
+  background-color: red;
+  color: white;
+  font-size: 14px;
+}
+.layanan .content-layanan .card-content-layanan .detail .btn-pesan:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 5px rgb(121, 121, 121);
+}
+.layanan .content-layanan .card-content-layanan .ket-driver-dua {
+  margin-top: -1.2rem;
+}
+.layanan .content-layanan .driver {
+  border: 2px solid var(--warna) !important;
+  padding: 5px 3px 7px 3px;
+  padding-bottom: 25px;
+}
+
+.pesan-sekarang {
+  margin-top: 3rem;
+  background-color: var(--warna);
+  padding: 3rem 3rem;
+}
+.pesan-sekarang h2,
+.pesan-sekarang h3 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+.pesan-sekarang .btn-pesan {
+  background-color: white;
+  font-weight: bold;
+}
+.pesan-sekarang .btn-pesan:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 5px black;
+}
+
+.sewa-mobil-jogja {
+  margin-top: 5rem;
+}
+.sewa-mobil-jogja .judul-sewa-mobil-jogja {
+  text-align: center;
+}
+.sewa-mobil-jogja .judul-sewa-mobil-jogja h1 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.sewa-mobil-jogja .judul-sewa-mobil-jogja p {
+  font-size: 18px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja {
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  border: 2px solid red;
+  padding: 0.5rem 0.2rem 1rem 0.2rem;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .gambar-wisata {
+  border-radius: 10px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja h5 {
+  margin-top: 1rem;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: red;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .hiace {
+  color: var(--warna);
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .p1 {
+  margin-top: -0.5rem;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .p2 {
+  margin-top: -12px;
+  font-weight: bold;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .p1,
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .p2 {
+  font-size: 19px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .wisata {
+  margin-top: -10px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .tujuan {
+  font-size: 20px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .harga {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .btn-pesan {
+  background-color: red;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .pesan-hiace {
+  background-color: var(--warna);
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .btn-pesan:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 5px black;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .deskripsi-wisata {
+  text-align: justify;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .p3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .btn-detail {
+  background-color: var(--warna);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .btn-detail:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 5px black;
+}
+.sewa-mobil-jogja .content-sewa-mobil-jogja .card-hiace {
+  border: 2px solid var(--warna);
+}
+
+.bg-linier {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #1f79d6);
+}
+
+.pengenalan {
+  margin-top: 2rem;
+}
+.pengenalan .judul-pengenalan {
+  margin-bottom: 1.5rem;
+}
+.pengenalan .judul-pengenalan h1 .depan,
+.pengenalan .judul-pengenalan h1 .belakang {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.pengenalan .judul-pengenalan h1 .depan {
+  color: var(--warna);
+}
+.pengenalan .judul-pengenalan h1 .belakang {
+  color: red;
+}
+.pengenalan .judul-pengenalan h3,
+.pengenalan .judul-pengenalan h4 {
+  font-weight: bold;
+}
+.pengenalan .judul-pengenalan h3 {
+  margin-top: -7px;
+}
+.pengenalan .content-pengenalan {
+  margin-top: 1.5rem;
+}
+.pengenalan .content-pengenalan p {
+  font-size: 18px;
+}
+
+hr {
+  border: 1px solid var(--warna);
+  width: 20%;
+  margin: auto;
+}
+
+.paket-wisata-jogja {
+  margin-top: 3rem;
+}
+.paket-wisata-jogja .judul-paket-wisata-jogja h1 .depan,
+.paket-wisata-jogja .judul-paket-wisata-jogja h1 .belakang {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.paket-wisata-jogja .judul-paket-wisata-jogja h1 .depan {
+  color: var(--warna);
+}
+.paket-wisata-jogja .judul-paket-wisata-jogja h1 .belakang {
+  color: red;
+}
+.paket-wisata-jogja .judul-paket-wisata-jogja h3,
+.paket-wisata-jogja .judul-paket-wisata-jogja h4 {
+  font-weight: bold;
+}
+.paket-wisata-jogja .judul-paket-wisata-jogja h3 {
+  margin-top: -7px;
+}
+.paket-wisata-jogja .destinasi-favorit {
+  margin-bottom: 2rem;
+}
+.paket-wisata-jogja .destinasi-favorit .item-wisata {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.paket-wisata-jogja .destinasi-favorit .item-wisata img {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgb(119, 119, 119);
+}
+.paket-wisata-jogja .destinasi-favorit .item-wisata .nama-destinasi {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 15px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja {
+  margin-bottom: 2rem;
+  padding: 20px 10px;
+  border: 2px solid var(--warna);
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja img {
+  border-radius: 15px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .judul-trip {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--warna);
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .destinasi {
+  margin-top: 0.8rem;
+  font-weight: bold;
+  font-size: 18px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .daftar-harga {
+  font-weight: bold;
+  font-size: 18px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja ul {
+  margin-top: -0.8rem;
+  list-style: none;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja ul i {
+  margin-right: 0.5rem;
+  margin-left: -1rem;
+  color: var(--warna);
+  font-weight: 800;
+  font-size: 20px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja ul li {
+  font-weight: bold;
+  color: var(--warna);
+  font-size: 17px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .harga {
+  margin-top: -10px;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .harga .harga-mobil {
+  font-weight: bold;
+  color: black;
+}
+.paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .pesan .btn-pesan {
+  background-color: var(--warna);
+  color: white;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya {
+  margin-bottom: 2rem;
+  border: 2px solid var(--warna);
+  padding: 20px 5px 25px 5px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya .nama-mobil {
+  font-weight: bold;
+  font-size: 18px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya .kapasitas {
+  margin-top: 5px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya .harga-wisata {
+  font-weight: bold;
+  color: var(--warna);
+  font-size: 25px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya ul li {
+  font-size: 17px;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya ul .na {
+  text-decoration: line-through;
+  color: rgb(179, 179, 179);
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya .pesan .btn-pesan-wisata {
+  background-color: var(--warna);
+  color: white;
+}
+.paket-wisata-jogja .content-paket-wisata-lainnya .card-paket-wisata-lainnya .pesan .btn-pesan-wisata:hover {
+  transform: scale(1.03);
+  box-shadow: 3px 3px 3px rgb(88, 88, 88);
+}
+
+.penutup {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: var(--warna);
+  color: white;
+}
+.penutup .p1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.penutup a {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  height: 50px;
+  line-height: 50px;
+}
+
+.sewa-hiace-jogja .judul-sewa-hiace-jogja h2 {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja {
+  border: 2px solid var(--warna);
+  padding: 10px 8px 15px 8px;
+  margin-bottom: 2rem;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .tujuan-hiace {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .nama-hiace {
+  font-weight: bold;
+  color: var(--warna);
+  font-size: 20px;
+  margin-top: 1rem;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .kapasitas {
+  margin-top: -1rem;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .harga-hiace {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .harga-hiace span {
+  font-size: 15px;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja ul {
+  list-style: none;
+  padding-left: 18px;
+  font-size: 17px;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja ul li {
+  margin-bottom: 0.2rem;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja ul li i {
+  color: var(--warna);
+  font-weight: bold;
+  margin-right: 7px;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja ul .na {
+  text-decoration: line-through;
+  color: rgb(161, 161, 161);
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja ul .na i {
+  color: red;
+  font-weight: bold;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .btn-pesan .btn-pesan-hiace {
+  background-color: var(--warna);
+  font-size: 17px;
+  color: white;
+}
+.sewa-hiace-jogja .content-sewa-hiace-jogja .card-sewa-hiace-jogja .btn-pesan .btn-pesan-hiace:hover {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 3px black;
+}
+
+.daftar-harga {
+  margin-top: 3rem;
+}
+.daftar-harga .judul-daftar-harga h3 {
+  font-weight: bold;
+  color: var(--warna);
+  font-size: 24px;
+}
+.daftar-harga .judul-daftar-harga h4 {
+  font-size: 18px;
+}
+.daftar-harga .content-daftar-harga .intro {
+  text-align: justify;
+}
+.daftar-harga .content-daftar-harga h5 {
+  margin-top: 2rem;
+  font-weight: bold;
+}
+.daftar-harga .content-daftar-harga .rupiah {
+  font-size: 14px;
+}
+
+@media (max-width: 1399.98px) {
+  .layanan .content-layanan .card-content-layanan .detail .btn-detail {
+    margin-bottom: 0rem;
+  }
+  .layanan .content-layanan .card-content-layanan .detail-harga-driver p {
+    font-size: 15px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga p {
+    font-size: 17px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail a {
+    font-size: 15px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail .btn-detail {
+    margin-bottom: 0.7rem !important;
+  }
+}
+@media (max-width: 1199.8px) {
+  .navbar .navbar-brand {
+    font-size: 16px;
+  }
+  .navbar .navbar-nav .nav-item {
+    font-size: 17px;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .tujuan,
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .harga {
+    font-size: 15px;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail .btn-detail {
+    margin-bottom: 0px !important;
+  }
+  .layanan .content-layanan .driver .detail-harga-driver .tujuan-driver,
+  .layanan .content-layanan .driver .detail-harga-driver .harga-driver {
+    font-size: 15px;
+  }
+}
+@media (max-width: 991.98px) {
+  .kenapa .gambar-2 {
+    display: none !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .tujuan,
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .harga {
+    font-size: 18px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .wisata .detail .btn-detail {
+    margin-bottom: 0px !important;
+    margin-right: 1rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar {
+    text-align: center;
+  }
+  .layanan .judul-layanan {
+    text-align: center;
+  }
+  .layanan .driver .detail-harga-driver p {
+    font-size: 18px !important;
+  }
+  .layanan .content-layanan .card-content-layanan {
+    margin-bottom: 5rem !important;
+  }
+  .layanan .content-layanan .card-content-layanan .detail .btn-detail,
+  .layanan .content-layanan .card-content-layanan .detail .btn-pesan {
+    font-size: 18px !important;
+  }
+  .layanan .content-layanan .driver .detail-harga-driver .tujuan-driver,
+  .layanan .content-layanan .driver .detail-harga-driver .harga-driver {
+    font-size: 20px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .tujuan,
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .card-sewa-mobil-jogja .detail-harga .harga {
+    font-size: 20px !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .wisata .detail {
+    text-align: center !important;
+  }
+  .sewa-mobil-jogja .content-sewa-mobil-jogja .wisata .detail .btn-detail {
+    margin-bottom: 0px !important;
+  }
+  .paket-wisata-jogja .judul-paket-wisata-jogja {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .harga .jenis-mobil,
+  .paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .harga .harga-mobil {
+    font-size: 22px !important;
+  }
+  .paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .pesan {
+    margin-top: 0.7rem;
+  }
+  .paket-wisata-jogja .content-paket-wisata-jogja .card-paket-wisata-jogja .pesan .btn-pesan {
+    font-size: 20px !important;
+    background-color: var(--warna);
+    color: white;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .kenapa .img-2 {
+    display: block !important;
+  }
+}/*# sourceMappingURL=style.css.map */
