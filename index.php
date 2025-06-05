@@ -1,0 +1,1351 @@
+<?php
+$filename = "counter.txt";
+$counter = 0;
+
+// Jika file ada, proses
+if (file_exists($filename)) {
+    $fp = fopen($filename, "c+"); // Buka file untuk baca & tulis
+
+    if ($fp && flock($fp, LOCK_EX)) { // Coba kunci file
+        $size = filesize($filename);
+        if ($size > 0) {
+            $counter = (int)fread($fp, $size); // Ambil data
+        }
+        $counter++; // Tambah 1 pengunjung
+
+        // Simpan kembali
+        ftruncate($fp, 0); // Hapus isi file
+        rewind($fp);       // Kembali ke awal
+        fwrite($fp, $counter); // Tulis data baru
+        fflush($fp);       // Paksa simpan ke disk
+        flock($fp, LOCK_UN); // Lepas kunci
+    }
+
+    if ($fp) {
+        fclose($fp);
+    }
+} else {
+    // Jika file tidak ada, buat file baru
+    file_put_contents($filename, "1");
+    $counter = 1;
+}
+
+// Tampilkan
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Sewa Mobil & Paket Wisata Jogja hanya di Chandra JogjaTrans 0878-0748-2581. Tersedia berbagai macam
+    pilihan mobil untuk semua kebutuhan acaramu dengan tujuan ke berbagai kota di pulau Jawa, Sumatera, Bali, dan Lombok"
+    />
+    <meta
+      name="keywords"
+      content="Sewa Hiace Jogja, Sewa Mobil Jogja, Paket Wisata Jogja"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      0878-0748-2581 Chandra JogjaTrans - Sewa Mobil & Paket Wisata Jogja |
+      Jalan Jalan Dulu - Jalan Jalan Terus
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,800;0,900;1,400&family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          target="_blank"
+          href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+        Chandra JogjaTrans, Saya Mau Sewa Mobil & Paket Wisata Jogja"
+          ><img
+            src="img/logocjt.png"
+            style="width: 50px"
+            alt="Sewa Mobil & Paket Wisata Jogja"
+            srcset=""
+          />Chandra JogjaTrans</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Beranda</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sewamobiljogja.html">Sewa Mobil</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sewa HIACE
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="sewahiacecommuterjogja.html"
+                    >HIACE Commuter</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="sewapremiojogja.html"
+                    >HIACE Premio</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="sewapremioluxuryjogja.html"
+                    >Premio Luxury</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="sewaelflongjogja.html"
+                    >ELF LONG</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Paket Wisata
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogja.html"
+                    >Jogja</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjadieng.html"
+                    >Dieng</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjasemarang.html"
+                    >Semarang</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjamalang.html"
+                    >Malang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="paketwisatajogjabanyuwangi.html"
+                    >Banyuwangi</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjabali.html"
+                    >Bali</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjajakarta.html"
+                    >Jakarta</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="paketwisatajogjabandung.html"
+                    >Bandung</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="jasadriverjogja.html">Jasa Driver</a>
+            </li>
+          </ul>
+          <a
+            href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+          Chandra JogjaTrans, Saya Mau Sewa Mobil & Paket Wisata Jogja"
+            target="_blank"
+            class="btn btn-sm btn-pesan"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section class="judul-halaman text-center">
+      <h1>Chandra <span>JogjaTrans</span></h1>
+      <h2>Sewa Mobil & Paket Wisata Jogja</h2>
+      <p>Jalan Jalan Dulu - <span>Jalan Jalan Terus</span></p>
+    </section>
+
+    <section class="kenapa container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-10 text-end">
+          <h3>Mengapa Chandra JogjaTrans</h3>
+          <h4>Crew Profesional</h4>
+          <p>
+            <strong>Chandra JogjaTrans</strong> menyedikan crew profesional,
+            yakni Driver yang sudah ahli di bidangnya dan berpengalaman dengan
+            memiliki jam terbang yang tingi.
+            <strong>Chandra JogjaTrans</strong> selalu memberikan arahan kepada
+            Driver untuk melakukan Safety Driving dengan tujuan memberikan
+            Kenyaman Berkendara untuk Anda.
+          </p>
+          <h4>Bintang 7</h4>
+          <p>
+            <strong>Chandra JogjaTrans</strong> memberikan perintah kepada crew
+            untuk memberikan pelayanan yang maksimal agar perjalanan Pelanggan
+            menjadi aman dan nyaman. Untuk Crew Garasi, selalu mencuci dan
+            mengecek kendaran yang akan digunakan sehingga Pelanggan merasa
+            Nyaman. Untuk Driver, Selalu menjaga kesehatan dan stamina agar
+            menjadikan perjalanan Pelanggan Lancar dan Aman.
+          </p>
+          <h4>Kendaraan Bersih & Terawat</h4>
+          <p>
+            <strong>Chandra JogjaTrans</strong> melalui Crew Garasi untuk
+            melakukan Service berkala agar Kendaraan selalu fit sebelum
+            digunakan. Tentunya keluhan-keluhan kendaraan sekecil apapun
+            langsung diberikan perbaikan dan penyempurnaan, untuk mengantisipasi
+            kerusakan yang lebih berat.
+          </p>
+        </div>
+        <div class="col-lg-4 col-10">
+          <img
+            src="img/banner.png"
+            class="img-fluid mb-4"
+            style="width: 100%"
+            alt="Sewa Mobil & Paket Wisata Jogja"
+            srcset=""
+          />
+          <img
+            src="img/driverjogja.png"
+            class="gambar-2 img-fluid"
+            style="width: 100%"
+            alt="Sewa Mobil & Paket Wisata Jogja"
+            srcset=""
+          />
+        </div>
+        <div class="col-lg-4 col-10 kenapa">
+          <h3>Kenapa Chandra JogjaTrans</h3>
+          <h4>Admin Siaga</h4>
+          <p>
+            Admin Chandra JogjaTrans siap melayanimu 24 jam sehari, 7 hari
+            seminggu. Jika telat balas pesan, artinya Admin sedang di kamar
+            mandi atau sedang hibernasi karena habis nyupir semalaman. Tenang
+            Saja, Admin akan balas pesanmu sesegera mungkin ^^
+          </p>
+          <h4>Harga Teman</h4>
+          <p>
+            <strong>Chandra JogjaTrans</strong>, Sewa Mobil Jogja, dengan harga
+            yang sangat terjangkau ataupaun bisa dibilang harga teman, tetap
+            memberikan pelayanan yang maksimal dan yang terbaik. Dengan Prinsip
+            Low Cost Good Choice, mendapatkan harga terbaik dengan tetap
+            memberikan Pelayanan yang maksimal.
+          </p>
+          <h4>Kendaraan tinggal pilih</h4>
+          <p>
+            <strong>Chandra JogjaTrans</strong>, Sewa Mobil Jogja, mengatur
+            kendaraan sekitar 20 unit kendaraan HIACE, baik HIACE Commuter,
+            HIACE Premio, Premio Luxury, dan ELF Long. Ditambahan dengan
+            kendaraan City Car seperti Grand Avanza, Xpander, Innova Reborn, dan
+            masih banyak lainnya. Jadi silahkan hubungi
+            <strong>Chandra JogjaTrans</strong>, Sewa Mobil Jogja, untuk pilih
+            kendaraan Favoritmu.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="layanan container">
+      <div class="judul-layanan">
+        <h2>Layanan Chandra JogjaTrans</h2>
+        <h5>Sewa Mobil & Paket Wisata Jogja</h5>
+      </div>
+      <div class="content-layanan">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-content-layanan">
+              <img
+                src="img/sewamobil.png"
+                class="img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5>Sewa Mobil Jogja</h5>
+              <p>
+                <strong>Candra JogjaTrans</strong> melayani
+                <span> Sewa Mobil Jogja</span>
+                untuk tujuan ke berbagai kota dengan pilihan mobil yang beragam,
+                seperti : Grand Avanza, New Avanza, Innova Reborn, Xpander, dan
+                sebagainya.
+              </p>
+              <div class="detail d-flex justify-content-evenly">
+                <a href="sewamobiljogja.html" class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil Jogja"
+                  class="btn btn-sm btn-pesan"
+                  target="_blank"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-content-layanan">
+              <img
+                src="img/sewahiace.png"
+                class="img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5>Sewa HIACE Jogja</h5>
+              <p>
+                <strong>Candra JogjaTrans</strong> melayani
+                <span>Sewa HIACE Jogja</span>
+                untuk acara apa saja. Tersedia HIACE Commuter, HIACE Premio,
+                Premio Luxury, dan ELF Long 18 Seats. Kapsitas dari 13 penumpang
+                sampai 18 penumpang.
+              </p>
+              <div class="detail d-flex justify-content-evenly">
+                <a href="sewahiacejogja.html" class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil HIACE Jogja"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-content-layanan">
+              <img
+                src="img/paketwisata.png"
+                class="img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5>Paket Wisata Jogja</h5>
+              <p>
+                <strong>Candra JogjaTrans</strong> melayani
+                <span>Paket Wisata</span> baik di Jogja, maupun ke kota lainnya,
+                seperti Wisata Dieng, Wisata Malang, Wisata Malang, Wisata
+                Banyuwani, Wisata Bali, dan masih banyak lainnya.
+              </p>
+              <div class="detail d-flex justify-content-evenly">
+                <a href="paketwisatajogja.html" class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Paket Wisata Jogja"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-content-layanan">
+              <img
+                src="img/jasadriver.png"
+                class="img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5>Jasa Driver Jogja</h5>
+              <p>
+                <strong>Candra JogjaTrans</strong> melayani
+                <span>Jasa Driver Jogja</span> untuk Anda yang ingin berkunjung
+                ke Jogja, ataupun Anda yang ingin pulang ke kota asal setelah
+                berkunjung di Jogja. Biar Kami yang nyupir dan Anda duduk manis.
+              </p>
+              <div class="detail d-flex justify-content-evenly">
+                <a href="#driver" class="btn btn-sm btn-detail">Lihat Detail</a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Jasa Driver Jogja"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pesan-sekarang cointainer-fluid text-center">
+      <h2>Pesan Sekarang</h2>
+      <h3>0878 - 0748 - 2581</h3>
+      <a
+        href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+      Chandra JogjaTrans, Saya Mau Sewa Mobil & Paket Wisata Jogja"
+        target="_blank"
+        class="btn btn-lg btn-pesan"
+        >Pesan WhatsApp</a
+      >
+    </section>
+
+    <!-- Bagian Sewa Mobil -->
+    <section class="sewa-mobil-jogja container">
+      <div class="judul-sewa-mobil-jogja">
+        <h1>Sewa MOBIL Jogja</h1>
+        <p>Daftar Harga Sewa Mobil Jogja</p>
+      </div>
+      <div class="content-sewa-mobil-jogja">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-sewa-mobil-jogja">
+              <img
+                src="img/avanza.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="text-center">Grand Avanza</h5>
+              <p class="p1 text-center">Kapasitas 6 Penumpang</p>
+              <p class="p2 text-center">MOBIL + Driver + BBM</p>
+              <div class="detail-harga d-flex float-left">
+                <p class="tujuan">Area Jogja</p>
+                <p class="harga ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="detail-harga d-flex float-left">
+                <p class="tujuan">Ke Semarang</p>
+                <p class="harga ms-auto">Rp 795.000,-</p>
+              </div>
+              <div class="detail-harga d-flex float-left">
+                <p class="tujuan">Ke Dieng</p>
+                <p class="harga ms-auto">Rp 845.000,-</p>
+              </div>
+              <div class="tombol-pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil Jogja Grand Avanza dengan tujuan ke . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan mt-2"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-sewa-mobil-jogja">
+              <img
+                src="img/newavanza.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="text-center">New Avanza</h5>
+              <p class="p1 text-center">Kapasitas 6 Penumpang</p>
+              <p class="p2 text-center">MOBIL + Driver + BBM</p>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Area Jogja</p>
+                <p class="harga ms-auto">Rp 645.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Semarang</p>
+                <p class="harga ms-auto">Rp 845.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Dieng</p>
+                <p class="harga ms-auto">Rp 895.000,-</p>
+              </div>
+              <div class="tombol-pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil Jogja New Avanza dengan tujuan ke . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan mt-2"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-sewa-mobil-jogja">
+              <img
+                src="img/xpander.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="text-center">Xpander</h5>
+              <p class="p1 text-center">Kapasitas 6 Penumpang</p>
+              <p class="p2 text-center">MOBIL + Driver + BBM</p>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Area Jogja</p>
+                <p class="harga ms-auto">Rp 695.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Semarang</p>
+                <p class="harga ms-auto">Rp 895.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Dieng</p>
+                <p class="harga ms-auto">Rp 945.000,-</p>
+              </div>
+              <div class="tombol-pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil Jogja Xpander dengan tujuan ke . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan mt-2"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+            <div class="card card-sewa-mobil-jogja">
+              <img
+                src="img/innova.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="text-center">Innova Reborn</h5>
+              <p class="p1 text-center">Kapasitas 7 Penumpang</p>
+              <p class="p2 text-center">MOBIL + Driver + BBM</p>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Area Jogja</p>
+                <p class="harga ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Semarang</p>
+                <p class="harga ms-auto">Rp 945.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga">
+                <p class="tujuan">Ke Dieng</p>
+                <p class="harga ms-auto">Rp 945.000,-</p>
+              </div>
+              <div class="tombol-pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Mobil Jogja Innova Reborn dengan tujuan ke . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan mt-2"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Sewa HIACE -->
+    <section class="sewa-mobil-jogja bg-linier">
+      <div class="container">
+        <div class="judul-sewa-mobil-jogja">
+          <h1>Sewa HIACE Jogja</h1>
+          <p>Daftar Harga Sewa Mobil HIACE Jogja</p>
+        </div>
+        <div class="content-sewa-mobil-jogja">
+          <div class="row justify-content-center">
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+              <div class="card card-sewa-mobil-jogja card-hiace">
+                <img
+                  src="img/commuter.png"
+                  alt="Sewa Mobil & Paket Wisata Jogja"
+                  srcset=""
+                />
+                <h5 class="hiace text-center">HIACE Commuter</h5>
+                <p class="p1 text-center">Kapasitas 15 Penumpang</p>
+                <p class="p2 text-center">MOBIL + Driver + BBM</p>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Area Jogja</p>
+                  <p class="harga ms-auto">Rp 1.145.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Semarang</p>
+                  <p class="harga ms-auto">Rp 1.445.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Dieng</p>
+                  <p class="harga ms-auto">Rp 1.495.000,-</p>
+                </div>
+                <div class="tombol-pesan text-center">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                  Chandra JogjaTrans, Saya Mau Sewa HIACE Jogja dengan tujuan ke . . . "
+                    target="_blank"
+                    class="btn btn-sm btn-pesan pesan-hiace mt-2"
+                    >Pesan WhatsApp</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+              <div class="card card-sewa-mobil-jogja card-hiace">
+                <img
+                  src="img/premio.png"
+                  alt="Sewa Mobil & Paket Wisata Jogja"
+                  srcset=""
+                />
+                <h5 class="hiace text-center">HIACE Premio</h5>
+                <p class="p1 text-center">Kapasitas 13 Penumpang</p>
+                <p class="p2 text-center">MOBIL + Driver + BBM</p>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Area Jogja</p>
+                  <p class="harga ms-auto">Rp 1.445.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Semarang</p>
+                  <p class="harga ms-auto">Rp 1.745.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Dieng</p>
+                  <p class="harga ms-auto">Rp 1.795.000,-</p>
+                </div>
+                <div class="tombol-pesan text-center">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                  Chandra JogjaTrans, Saya Mau Sewa HIACE Premio Jogja dengan tujuan ke . . . "
+                    target="_blank"
+                    class="btn btn-sm btn-pesan pesan-hiace mt-2"
+                    >Pesan WhatsApp</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+              <div class="card card-sewa-mobil-jogja card-hiace">
+                <img
+                  src="img/luxury.png"
+                  alt="Sewa Mobil & Paket Wisata Jogja"
+                  srcset=""
+                />
+                <h5 class="hiace text-center">Premio Luxury</h5>
+                <p class="p1 text-center">Kapasitas 8 Penumpang</p>
+                <p class="p2 text-center">MOBIL + Driver + BBM</p>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Area Jogja</p>
+                  <p class="harga ms-auto">Rp 2.495.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Semarang</p>
+                  <p class="harga ms-auto">Rp 2.795.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Dieng</p>
+                  <p class="harga ms-auto">Rp 2.895.000,-</p>
+                </div>
+                <div class="tombol-pesan text-center">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                  Chandra JogjaTrans, Saya Mau Sewa HIACE Premio Luxury Jogja dengan tujuan ke . . . "
+                    target="_blank"
+                    class="btn btn-sm btn-pesan pesan-hiace mt-2"
+                    >Pesan WhatsApp</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-10">
+              <div class="card card-sewa-mobil-jogja card-hiace">
+                <img
+                  src="img/elf.png"
+                  alt="Sewa Mobil & Paket Wisata Jogja"
+                  srcset=""
+                />
+                <h5 class="hiace text-center">ELF Long</h5>
+                <p class="p1 text-center">Kapasitas 18 Penumpang</p>
+                <p class="p2 text-center">MOBIL + Driver + BBM</p>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Area Jogja</p>
+                  <p class="harga ms-auto">Rp 1.595.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Semarang</p>
+                  <p class="harga ms-auto">Rp 1.795.000,-</p>
+                </div>
+                <div class="d-flex float-left detail-harga">
+                  <p class="tujuan">Ke Dieng</p>
+                  <p class="harga ms-auto">Rp 1.895.000,-</p>
+                </div>
+                <div class="tombol-pesan text-center">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                  Chandra JogjaTrans, Saya Mau Sewa ELF Long Jogja dengan tujuan ke . . . "
+                    target="_blank"
+                    class="btn btn-sm btn-pesan pesan-hiace mt-2"
+                    >Pesan WhatsApp</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Paket Wisata -->
+    <section class="sewa-mobil-jogja container">
+      <div class="judul-sewa-mobil-jogja">
+        <h1>Paket Wisata</h1>
+        <p>Daftar Paket Wisata Jogja & Kota Lainnya</p>
+      </div>
+      <div class="content-sewa-mobil-jogja">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-10">
+            <div class="card card-sewa-mobil-jogja wisata">
+              <img
+                class="gambar-wisata"
+                src="img/paket-wisata/malioboro.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="hiace text-center">Paket Wisata Jogja</h5>
+              <p class="deskripsi-wisata">
+                Jogja memiliki destinasi yang lengkap. Dari Pantai hingga Gunung
+                memiliki banyak destinasi. Tidak hanya wisata Alam, namun juga
+                Wisata Budaya dan Wisata Kuliner.
+              </p>
+              <p class="p3 text-center">Pilih Mobil Favoritmu</p>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Grand Avanza</p>
+                <p class="harga ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Innova Reborn</p>
+                <p class="harga ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">HIACE Commuter</p>
+                <p class="harga ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="detail text-center">
+                <a href="paketwisatajogja.html" class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Paket Wisata Jogja pakai mobil . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-10">
+            <div class="card card-sewa-mobil-jogja wisata">
+              <img
+                class="gambar-wisata"
+                src="img/paket-wisata/wisata-dieng.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="hiace text-center">Paket Wisata Dieng</h5>
+              <p class="deskripsi-wisata">
+                Jogja memiliki destinasi yang lengkap. Dari Pantai hingga Gunung
+                memiliki banyak destinasi. Tidak hanya wisata Alam, namun juga
+                Wisata Budaya dan Wisata Kuliner.
+              </p>
+              <p class="p3 text-center">Pilih Mobil Favoritmu</p>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Grand Avanza</p>
+                <p class="harga ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Innova Reborn</p>
+                <p class="harga ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">HIACE Commuter</p>
+                <p class="harga ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="detail text-center">
+                <a
+                  href="paketwisatajogjadieng.html"
+                  class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Paket Wisata Dieng pakai mobil . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-10">
+            <div class="card card-sewa-mobil-jogja wisata">
+              <img
+                class="gambar-wisata"
+                src="img/paket-wisata/wisata-malang.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="hiace text-center">Paket Wisata Malang</h5>
+              <p class="deskripsi-wisata">
+                Jogja memiliki destinasi yang lengkap. Dari Pantai hingga Gunung
+                memiliki banyak destinasi. Tidak hanya wisata Alam, namun juga
+                Wisata Budaya dan Wisata Kuliner.
+              </p>
+              <p class="p3 text-center">Pilih Mobil Favoritmu</p>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Grand Avanza</p>
+                <p class="harga ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Innova Reborn</p>
+                <p class="harga ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">HIACE Commuter</p>
+                <p class="harga ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="detail text-center">
+                <a
+                  href="paketwisatajogjamalang.html"
+                  class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Paket Wisata Malang pakai mobil . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-10">
+            <div class="card card-sewa-mobil-jogja wisata">
+              <img
+                class="gambar-wisata"
+                src="img/paket-wisata/wisata-bali.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="hiace text-center">Paket Wisata Bali</h5>
+              <p class="deskripsi-wisata">
+                Jogja memiliki destinasi yang lengkap. Dari Pantai hingga Gunung
+                memiliki banyak destinasi. Tidak hanya wisata Alam, namun juga
+                Wisata Budaya dan Wisata Kuliner.
+              </p>
+              <p class="p3 text-center">Pilih Mobil Favoritmu</p>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Grand Avanza</p>
+                <p class="harga ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">Innova Reborn</p>
+                <p class="harga ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga wisata">
+                <p class="tujuan">HIACE Commuter</p>
+                <p class="harga ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="detail text-center">
+                <a
+                  href="paketwisatajogjabali.html"
+                  class="btn btn-sm btn-detail"
+                  >Lihat Detail</a
+                >
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Paket Wisata Bali pakai mobil . . . "
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Jasa Driver -->
+    <section id="driver" class="layanan container">
+      <div class="judul-layanan text-center">
+        <h2>Jasa DRIVER Jogja</h2>
+        <h5>Untuk Tujuan ke Berbagai Kota</h5>
+      </div>
+      <div class="content-layanan">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-content-layanan driver">
+              <img
+                src="img/driverjogja.png"
+                class="img-driver img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="area-driver">Area DIY</h5>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Selain Gunung Kidul</p>
+                <p class="harga-driver ms-auto">Rp 175.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Ke Gunung Kidul</p>
+                <p class="harga-driver ms-auto">Rp 200.000,-</p>
+              </div>
+              <p class="ket-driver text-center">Harga Per Day</p>
+              <p class="ket-driver-dua text-center">
+                Belum Termasuk Akomodasi Driver
+              </p>
+              <div class="detail">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Jasa Driver Jogja untuk Area DIY"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-content-layanan driver">
+              <img
+                src="img/jasadriver.png"
+                class="img-driver img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="area-driver">Area Jawa Tengah</h5>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Bagian Timur</p>
+                <p class="harga-driver ms-auto">Rp 250.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Bagian Barat</p>
+                <p class="harga-driver ms-auto">Rp 300.000,-</p>
+              </div>
+              <p class="ket-driver text-center">Harga Per Day</p>
+              <p class="ket-driver-dua text-center">
+                Belum Termasuk Akomodasi Driver
+              </p>
+              <div class="detail">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Jasa Driver Jogja untuk Area Jawa Tengah"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-content-layanan driver">
+              <img
+                src="img/sewamobil.png"
+                class="img-driver img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="area-driver">Area Jatim & Jabar</h5>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Jatim & Jabar</p>
+                <p class="harga-driver ms-auto">Rp 250.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Jakarta & Banten</p>
+                <p class="harga-driver ms-auto">Rp 275.000,-</p>
+              </div>
+              <p class="ket-driver text-center">Harga Per Day</p>
+              <p class="ket-driver-dua text-center">
+                Belum Termasuk Akomodasi Driver
+              </p>
+              <div class="detail">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Jasa Driver Jogja untuk Area Jatim/Jabar"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-content-layanan driver">
+              <img
+                src="img/driverlintas.png"
+                class="img-driver img-fluid"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <h5 class="area-driver">Sumatera & Bali</h5>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Sumatera</p>
+                <p class="harga-driver ms-auto">Rp 300.000,-</p>
+              </div>
+              <div class="d-flex float-left detail-harga-driver">
+                <p class="tujuan-driver">Bali & Lombok</p>
+                <p class="harga-driver ms-auto">Rp 250.000,-</p>
+              </div>
+              <p class="ket-driver text-center">Harga Per Day</p>
+              <p class="ket-driver-dua text-center">
+                Belum Termasuk Akomodasi Driver
+              </p>
+              <div class="detail">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Sewa Jasa Driver Jogja untuk Area Sumatera/Bali"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pengenalan container">
+      <div class="judul-pengenalan text-center">
+        <h1>
+          <span class="depan">Chandra</span>
+          <span class="belakang">Jogja Trans</span>
+        </h1>
+        <h3>Jalan Jalan Dulu - Jalan Jalan Terus</h3>
+        <h4>0878-0748-2581</h4>
+      </div>
+      <hr />
+      <div class="content-pengenalan">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <p class="text-center">
+              <strong>Chandra JogjaTrans</strong> adalah layanan Jasa
+              Transportasi yang berada di kota Yogyakarta.
+              <strong>Chandra JogjaTrans</strong> melayani Sewa Mobil plus
+              Driver dan juga Paket Wisata Jogja maupaun Paket Wisata di Kota
+              Lainnya yang berangkat dari Kota Jogja. Pilihan Mobil di
+              <strong>Chandra JogjaTrans</strong> sangat beragam, antara lain,
+              Grand Avanza, New Avanza, Honda Brio, Xpander, Innova Reborn,
+              Zenix, Voxy, Fortuner, HIACE Commuter, HIACE Premio, Premio
+              Luxury, hingga ELF Long yang berkapasitas 18 penumpang.
+            </p>
+            <p class="text-center">
+              <strong>Chandra JogjaTrans</strong> melayani Paket Wisata Jogja
+              maupaun Paket Wisata di kota lainnya seperti, Paket Wisata Dieng,
+              Paket Wisata Semarang, Paket Wisata Pacitan, Paket Wisata Malang,
+              Paket Wisata Bali, Paket Wisata Banyuwangi, Paket Wisata Lombok,
+              Paket Wisata Bandung, dan masih banyak lagi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paket Wisata Jogja Trip ABCD -->
+    <section class="paket-wisata-jogja container">
+      <div class="judul-paket-wisata-jogja">
+        <h1>
+          <span class="depan">Paket Wisata</span>
+          <span class="belakang">Jogja</span>
+        </h1>
+        <h3>Chandra JogjaTrans</h3>
+        <h4>0878-0748-2581</h4>
+      </div>
+      <div class="content-paket-wisata-jogja">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-paket-wisata-jogja">
+              <p class="judul-trip text-center">Paket Wisata TRIP A</p>
+              <img
+                src="img/paket-wisata/borobudur.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <p class="destinasi">Destinasi</p>
+
+              <ul class="list-destinasi">
+                <li><i class="bi bi-check-circle-fill"></i> Candi Borobudur</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Lava Tour Merapi
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Candi Prambanan</li>
+                <li><i class="bi bi-check-circle-fill"></i> Oleh Oleh</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Alun-Alun Selatan
+                  (Alkid)
+                </li>
+              </ul>
+              <p class="daftar-harga">Daftar Harga</p>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Grand Avanza</p>
+                <p class="harga-mobil ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Innova Reborn</p>
+                <p class="harga-mobil ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Commuter</p>
+                <p class="harga-mobil ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Premio</p>
+                <p class="harga-mobil ms-auto">Rp 1.445.000,-</p>
+              </div>
+              <div class="pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Paket Wisata Jogja TRIP A"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-paket-wisata-jogja">
+              <p class="judul-trip text-center">Paket Wisata TRIP B</p>
+              <img
+                src="img/paket-wisata/merapi.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <p class="destinasi">Destinasi</p>
+
+              <ul class="list-destinasi">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Lava Tour Merapi
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Ullen Sentalu</li>
+                <li><i class="bi bi-check-circle-fill"></i> Candi Prambanan</li>
+                <li><i class="bi bi-check-circle-fill"></i> Tebing Breksi</li>
+                <li><i class="bi bi-check-circle-fill"></i> Pinus Pengger</li>
+              </ul>
+              <p class="daftar-harga">Daftar Harga</p>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Grand Avanza</p>
+                <p class="harga-mobil ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Innova Reborn</p>
+                <p class="harga-mobil ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Commuter</p>
+                <p class="harga-mobil ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Premio</p>
+                <p class="harga-mobil ms-auto">Rp 1.445.000,-</p>
+              </div>
+              <div class="pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Paket Wisata Jogja TRIP B"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-paket-wisata-jogja">
+              <p class="judul-trip text-center">Paket Wisata TRIP C</p>
+              <img
+                src="img/paket-wisata/tamansari.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <p class="destinasi">Destinasi</p>
+
+              <ul class="list-destinasi">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Lava Tour Merapi
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Keraton Yogyakarta
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i>Taman Sari</li>
+                <li><i class="bi bi-check-circle-fill"></i> Gumuk Pasir</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Pantai Parangtritis
+                </li>
+              </ul>
+              <p class="daftar-harga">Daftar Harga</p>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Grand Avanza</p>
+                <p class="harga-mobil ms-auto">Rp 595.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Innova Reborn</p>
+                <p class="harga-mobil ms-auto">Rp 745.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Commuter</p>
+                <p class="harga-mobil ms-auto">Rp 1.145.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Premio</p>
+                <p class="harga-mobil ms-auto">Rp 1.445.000,-</p>
+              </div>
+              <div class="pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Paket Wisata Jogja TRIP C"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+            <div class="card card-paket-wisata-jogja">
+              <p class="judul-trip text-center">Paket Wisata TRIP D</p>
+              <img
+                src="img/paket-wisata/mangunan.png"
+                alt="Sewa Mobil & Paket Wisata Jogja"
+                srcset=""
+              />
+              <p class="destinasi">Destinasi</p>
+
+              <ul class="list-destinasi">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Kebun Buah Mangunan
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Hutan Pinus</li>
+                <li><i class="bi bi-check-circle-fill"></i> Pantai Drini</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Pantai Indrayanti
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> HEHA Ocean View</li>
+              </ul>
+              <p class="daftar-harga">Daftar Harga</p>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Grand Avanza</p>
+                <p class="harga-mobil ms-auto">Rp 645.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">Innova Reborn</p>
+                <p class="harga-mobil ms-auto">Rp 795.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Commuter</p>
+                <p class="harga-mobil ms-auto">Rp 1.195.000,-</p>
+              </div>
+              <div class="harga d-flex float-left">
+                <p class="jenis-mobil">HIACE Premio</p>
+                <p class="harga-mobil ms-auto">Rp 1.495.000,-</p>
+              </div>
+              <div class="pesan text-center">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6287807482581&text=Hallo 
+                Chandra JogjaTrans, Saya Mau Paket Wisata Jogja TRIP D"
+                  target="_blank"
+                  class="btn btn-sm btn-pesan"
+                  >Pesan WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="penutup">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-10">
+            <p class="p1">Chandra JogjaTrans</p>
+            <p>Jalan Jalan Dulu, Jalan Jalan Terus</p>
+            <p>Jl. Pogung Dalangan, Sinduadi Mlati Sleman DIY</p>
+          </div>
+          <div class="col-lg-4 col-10">
+            <p class="p1 text-center">Temui Kami</p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.272628448768!2d110.37052157380484!3d-7.760884576965441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59d0473198bf%3A0x95760d0164868fc3!2sChandra%20JogjaTrans%20%7C%20Rental%20Mobil%20Jogja%20%7C%20Paket%20Wisata%20Jogja%20%7C%20Sewa%20Bus%20Jogja!5e0!3m2!1sid!2sid!4v1709547279855!5m2!1sid!2sid"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="col-lg-4 col-10 text-end">
+            <p class="p1 text-end">Ikuti Kami</p>
+            <p>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >@chandra.jogjatrans</a
+              >
+            </p>
+            <p>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >@rentalhiace_jogja</a
+              >
+            </p>
+            <p>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >@sewa_hiacejogja</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer text-center">
+      <p>Chandra JogjaTrans @2024 - Copyright <?php $counter; ?></p>
+    </footer>
+
+    <script>
+      alert("Jalan Jalan Dulu - Jalan Jalan Terus");
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
